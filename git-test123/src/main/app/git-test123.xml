@@ -10,5 +10,7 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
     <flow name="git-test123Flow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/test123" doc:name="HTTP"/>
         <set-payload value="success" doc:name="Set Payload"/>
+        <set-variable variableName="payload" value="#[payload]" doc:name="Variable"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
     </flow>
 </mule>
